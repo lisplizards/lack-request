@@ -13,6 +13,7 @@
   :components ((:module "src"
                 :components
                 ((:file "main" :depends-on ("package"))
+                 (:file "content-negotiation" :depends-on ("package"))
                  (:file "package"))))
   :description "Alternative constructor and parsing functions for LACK/REQUEST:REQUEST structs"
   :in-order-to ((test-op (test-op "foo.lisp.lack-request/tests"))))
@@ -20,11 +21,13 @@
 (defsystem "foo.lisp.lack-request/tests"
   :author "John Newton"
   :license "MIT"
-  :depends-on ("foo.lisp.lack-request"
+  :depends-on ("alexandria"
+               "foo.lisp.lack-request"
                "rove")
   :components ((:module "tests"
                 :components
                 ((:file "main" :depends-on ("package"))
+                 (:file "content-negotiation" :depends-on ("package"))
                  (:file "package"))))
   :description "Test system for foo.lisp.lack-request"
   :perform (test-op (op c) (symbol-call :rove :run c)))

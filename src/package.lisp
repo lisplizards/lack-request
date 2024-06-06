@@ -10,3 +10,7 @@
            #:request-cookies
            #:request-query-parameters
            #:request-body-parameters))
+
+(defpackage #:foo.lisp.lack/request/content-negotiation
+  (:use #:cl)
+  (:export #:negotiate-media-type))

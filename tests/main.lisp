@@ -1,7 +1,7 @@
 ;; Copyright (c) 2024 John Newton
 ;; SPDX-License-Identifier: MIT
 
-(in-package :foo.lisp.lack-request/tests)
+(in-package :foo.lisp.lack/request/tests)
 
 (deftest make-request
     (testing
@@ -80,7 +80,8 @@
                            :url-scheme "http"
                            :query-string "foo=bar&foo=baaz&bar=baar"))
                     (request (foo.lisp.lack/request:make-request env)))
-               (ok (equal "foo=bar&foo=baaz&bar=baar" (getf (lack/request:request-env request) :query-string)))
+               (ok (equal "foo=bar&foo=baaz&bar=baar"
+                          (getf (lack/request:request-env request) :query-string)))
                (ok (not (member :query-parameters (lack/request:request-env request))))
                (let ((query-params (foo.lisp.lack/request:request-query-parameters request)))
                  (ok query-params)
