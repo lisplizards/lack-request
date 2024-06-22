@@ -3,6 +3,7 @@
 
 (in-package #:foo.lisp.lack/request/content-negotiation)
 
+(declaim (ftype (function (lack/request:request list) (or null string)) negotiate-media-type))
 (defun negotiate-media-type (request acceptable-media-type-strings)
   "Content-type negotiation function based on the request Accept header.
 
